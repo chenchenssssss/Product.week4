@@ -23,7 +23,7 @@ let vue = new Vue ({
                 const expired = response.data.expired ; // 到期日的值
                 // token 的名稱可以自定義 ↓
                 document.cookie = `sonykoToken=${token}; expires=${new Date(expired * 1000)}; path=/`; //轉換成時間格式存起來
-                window.location ='/week3.html';
+                window.location ='/product.html';
             }).catch((error)=>{
                 console.log(error);
             });
