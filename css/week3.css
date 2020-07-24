@@ -1,0 +1,79 @@
+*:focus{
+    outline: none !important;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.4) !important;
+}
+
+.thead{
+    background-color: #ffebf2a2;
+    color: #a5a5a5;
+    letter-spacing: 3px;
+}
+.btn{
+    background-color: #ffeaf1;
+    color: #707070;
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+
+}
+.btn:hover{
+    background-color: rgb(255, 214, 239);
+    color: #FFF;
+    transform: translateY(-1px);
+}
+td,label,h5,input{
+    color: #757575;
+}
+.btn1{
+    border: none;
+    background-color: #e5c6ff;
+    color: #FFF;
+    margin-right: 10px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+.btn2{
+    border: none;
+    background-color: #ffc6e1;
+    color: #FFF;
+    margin-right: 10px;
+    box-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+}
+.btn1:hover{
+    background-color: rgb(173, 255, 214);
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+}
+.btn2:hover{
+    background-color: rgb(163, 226, 255);
+    transform: translateY(-1px);
+    box-shadow: 3px 3px 4px rgba(0,0,0,0.4);
+}
+.form-control:focus{
+    border-color: #ffdeed;
+}
+.form-control{
+    color: #ffdeed;
+}
+.modal-header{
+    background-color:#FFF2F7;
+}
+.deleteText{
+    color: #797979;
+    text-align: right;
+    font-size: 14px;
+}
+.deleteText0{
+    color: #919191;
+}
+input{
+    background-color: #fff;
+}
+.page-link{
+    color: rgb(255, 197, 221);
+}
+.page-link:hover{
+    background-color: rgb(255, 215, 252);
+    color: rgb(255, 255, 255);
+}
+.page-item.active .page-link{
+    background-color: #FFE5F6;
+    border-color: #FFE5F6;
+}

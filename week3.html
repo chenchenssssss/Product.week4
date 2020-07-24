@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>商品マスター</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/week3.css">
+
+</head>
+
+<body>
+
+  <!-- 產品列表介面 -->
+  <div id="app" class="container mt-3">
+
+    <div class="text-right mt-3">
+      <button type="button" class="btn" @click="openModal('new')">商品登録</button>
+    </div>
+
+    <table class="table mt-3">
+      <thead class="thead">
+        <tr class="text-center">
+          <th>カテゴリー</th>
+          <th>商品名</th>
+          <th>定価</th>
+          <th>販売単価</th>
+          <th>種別</th>
+          <th>変更</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(item) in products" :key="item.id" class="text-center">
+          <td>{{ item.category }}</td>
+          <td>{{ item.title }}</td>
+          <td>{{ item.origin_price }}</td>
+          <td>{{ item.price }}</td>
+          <td>
+            <span v-if="item.enabled" class="text-info">公開</span>
+            <span v-else>非公開</span>
+          </td>
+          <td>
+            <div class="btn-group" role="group" aria-label="Basic example">
+              <button type="button" class="btn1 btn-sm" @click="openModal('edit', item)">
+                変更</button>
+              <button type="button" class="btn2 btn-sm" @click="openModal('delete', item)">削除</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!--分頁元件-->
+    <!--props的名稱  要傳入的物件名稱 -->
+    <pagination :pages="pagination" @update='getProducts'></pagination>
+
+    <!-- 產品 -->
+    <product-modal ref="productModel" :status="status" :is-new="isNew" :user="user" @update="getProducts"></product-modal>
+
+    <del-product-modal :temp-product="tempProduct" :user="user" @update="getProducts"></del-product-modal>  
+  </div>
+  
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="js/all.js" type="module"></script>
+</body>
+
+</html>
