@@ -14,14 +14,14 @@ export default {
       <div class="modal-body">
         <div class="row">
           <div class="col-sm-4">
-            <div class="form-grou">
-              <label for="imageUrl">画像アドレス</label>
-              <input type="text" id="imageUrl" v-model="tempProduct.imageUrl" class="form-control"
+            <div v-for='i in 3' :key="i + 'img'" class="form-group">
+              <label :for="'img' + i">画像アドレス</label>
+              <input type="text" :id="'img' + i" v-model="tempProduct.imageUrl[i - 1]" class="form-control"
                 placeholder="画像アドレスを入力してください。">
             </div>
             <div class="form-group">
                 <label for="customFile">
-                   画像をアップロードする
+                   画像アップロード
                    <i v-if="status.fileUploading" class="fas fa-spinner fa-spin"></i>
                 </label>
                 <input type="file" id="customFile" class="form-control" ref="file" @change="uploadFile">
